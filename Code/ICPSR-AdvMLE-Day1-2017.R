@@ -1,5 +1,5 @@
 #########################################################
-# ICPSR "Advanced Maximum Likelihood" 2016 - Survival
+# ICPSR "Advanced Maximum Likelihood" 2017 - Survival
 #
 # Day One materials.
 #
@@ -10,7 +10,7 @@ library(RCurl)
 library(foreign)
 library(survival)
 
-KABLURL<-"https://raw.githubusercontent.com/PrisonRodeo/ICPSR-2016-git/master/Data/KABL.csv"
+KABLURL<-"https://raw.githubusercontent.com/PrisonRodeo/ICPSR-2017-git/master/Data/KABL.csv"
 temp<-getURL(KABLURL)
 KABL<-read.csv(textConnection(temp))
 
