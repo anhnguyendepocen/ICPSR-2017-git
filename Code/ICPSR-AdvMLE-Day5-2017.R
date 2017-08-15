@@ -72,7 +72,7 @@ dev.off()
 
 # Real example: SCOTUS
 
-scotusURL<-"https://raw.githubusercontent.com/PrisonRodeo/ICPSR-2016-git/master/Data/scotus.csv"
+scotusURL<-"https://raw.githubusercontent.com/PrisonRodeo/ICPSR-2017-git/master/Data/scotus.csv"
 temp<-getURL(scotusURL)
 scotus<-read.csv(textConnection(temp))
 rm(temp)
