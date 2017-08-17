@@ -124,10 +124,15 @@ dev.off()
 
 # Parameterized duration dependence:
 
+scotus$svcstart <- scotus$service-1
+scotus.S<-Surv(scotus$svcstart,scotus$service,scotus$retire)
+
 ct.weib<-flexsurvreg(scotus.S~age+pension+pagree,
-                     data=scotus,dist="weibull")
+                     data=scotus,dist="weibull",
+                     inits=c(0.5,0.5,0.5,0.5,0.5))
 ct.weib.DD<-flexsurvreg(scotus.S~age+pension+pagree+shape(age),
-                        data=scotus,dist="weibull")
+                        data=scotus,dist="weibull",
+                        inits=c(0.5,0.5,0.5,0.5,0.5,0))
 
 # Plots (this code is a hotter mess than usual, and could use
 # a solid smack with a few Hadleyverse tools):
@@ -188,9 +193,6 @@ scotusURL<-"https://raw.githubusercontent.com/PrisonRodeo/ICPSR-2017-git/master/
 temp<-getURL(scotusURL)
 scotus<-read.csv(textConnection(temp))
 rm(temp)
-
-scotus.S<-Surv(scotus$svcstart,scotus$service,scotus$retire)
-
 
 # Illustrating competing risks: 
   
